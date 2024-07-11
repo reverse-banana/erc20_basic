@@ -29,9 +29,9 @@ contract ManualToken {
         uint256 previousBalances = balanceOf(msg.sender) + balanceOf(_to);
         // making snapshot of the accounts of sender and receiver total sum
         s_balances[msg.sender] -= _amount;
-        // substracting the sended amount from the sender account (by using map key pointer) 
+        // substracting the sended amount from the sender account (by using map key pointer)
         s_balances[_to] += _amount;
-        // adding the sended amount to the receiver account (by using map key pointer) 
+        // adding the sended amount to the receiver account (by using map key pointer)
 
         require(s_balances[msg.sender] + s_balances[_to] == previousBalances);
         // making sure that sender and receiver balances have the same checksum after the tnx

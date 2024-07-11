@@ -36,10 +36,10 @@ deploy:
 	@forge create src/OurToken.sol:OurToken --rpc-url http://localhost:8545 --private-key $(DEFAULT_ANVIL_KEY) --broadcast
 
 deploy-sepolia:
-	@forge script script/DeployOurToken.s.sol:DeployOurToken --rpc-url $(SEP_RPC) --account main  --sender $(SENDER) --account main --etherscan-api-key $(SEP_API) --broadcast --verify
+	@forge script script/DeployOurToken.s.sol:DeployOurToken --rpc-url $(SEP_RPC) --account main  --sender $(SENDER) --account $(ACCOUNT) --etherscan-api-key $(SEP_API) --broadcast --verify
 
 dryrun-sepolia:
-	@forge script script/DeployOurToken.s.sol:DeployOurToken --rpc-url https://eth-sepolia.g.alchemy.com/v2/Fn5p1nxvbHxlyfHlRJexIdoCJd4t9OIQ --sender 0xAD6633d5ABaA520e34741C28bdBF4a0D7E700572 --etherscan-api-key JN8DP5A93ZRS3GHETZN1CYCTGGK53HZDSK --legacy
+	@forge script script/DeployOurToken.s.sol:DeployOurToken --rpc-url $(SEP_RPC) --sender $(SENDER) --etherscan-api-key $(SEP_API) --legacy
 
 deploy-zk:
 	@forge create src/OurToken.sol:OurToken --rpc-url http://127.0.0.1:8011 --private-key $(DEFAULT_ZKSYNC_LOCAL_KEY) --legacy --zksync
